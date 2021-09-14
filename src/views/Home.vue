@@ -1,16 +1,18 @@
 <template>
-  <hello-world />
+  <div>
+    <Button />
+  </div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import HelloWorld from '../components/HelloWorld.vue'
+import Vue from "vue";
+import Button from "../components/Button.vue";
 
-  export default Vue.extend({
-    name: 'Home',
+export default Vue.extend({
+  name: "Home",
 
-    components: {
-      HelloWorld,
-    },
-  })
+  components: {
+    Button,
+  },
+});
 </script>
