@@ -1,13 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      dense
-      color="primary"
-      dark
-    >
-    Nav Bar
-    </v-app-bar>
 
     <v-main>
       <router-view/>
