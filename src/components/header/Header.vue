@@ -1,43 +1,62 @@
 <template>
-  <v-card>
-    <v-toolbar
-      color="#142245"
-      dark
-      flat
-      height="180px"
-    >
-      <v-toolbar-title>RACCON GAMES</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-layout style="max-width: 30vw; min-width:1vw;">
+  <v-app-bar app dark dense color="primary">
+    <div class="d-flex justify-space-between  align-center full-width">
+      <div>
+        <v-app-bar-title>
+          RACCON GAMES
+        </v-app-bar-title>
+      </div>
+      <div class="half-width">
         <v-text-field
-          placeholder="Pesquisar..."
-          single-line
-          background-color="#142245"
-          color="white"
+          dark
+          dense
+          outlined
           hide-details
+          placeholder="Pesquisar..."
+          prepend-inner-icon="mdi-magnify"
         ></v-text-field>
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
+      </div>
+      <div>
+        <v-btn icon class="mx-5">
+          <v-icon>mdi-purse</v-icon>
         </v-btn>
-      </v-layout>
-
-      <v-btn icon>
-        <!-- <v-card-text>Carrinho</v-card-text> -->
-        <v-icon size="50px">mdi-purse</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <!-- <v-card-text>Minha conta</v-card-text> -->
-        <v-icon size="50px">mdi-account</v-icon>
-      </v-btn>
-
-    </v-toolbar>
-  </v-card>
+        <v-btn icon class="mx-5">
+          <v-icon>mdi-account</v-icon>
+        </v-btn>
+      </div>
+    </div>
+    <template #extension>
+      <v-tabs align-with-title>
+        <v-tab>Todos</v-tab>
+        <v-tab>Consoles</v-tab>
+        <v-tab>Jogos</v-tab>
+        <v-tab>Acessórios</v-tab>
+        <v-tab>Decoração</v-tab>
+      </v-tabs>
+    </template>
+  </v-app-bar>
 </template>
 
 <script>
-  export default {
-  }
+export default {};
 </script>
+
+<style scoped>
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.full-width {
+  width: 100vw;
+}
+
+.half-width {
+  width: 45vw;
+}
+</style>
