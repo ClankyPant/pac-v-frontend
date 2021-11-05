@@ -23,3 +23,11 @@ export default Vue.extend({
   }),
 });
 </script>
+
+<style>
+
+.v-toolbar__content {
+  margin-top: 30px;
+}
+
+</style>
