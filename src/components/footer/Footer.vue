@@ -34,7 +34,7 @@
             </v-btn>
 
             <v-card-text class="white--text text-left">
-              {{ new Date().getFullYear() }} | <strong>Raccon Games | Todos os direitos reservados.</strong>
+              © {{ new Date().getFullYear() }} | <strong>Raccon Games | Todos os direitos reservados.</strong>
             </v-card-text>
           </v-card>
         </v-col>

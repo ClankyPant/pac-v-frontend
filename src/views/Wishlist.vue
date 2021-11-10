@@ -1,24 +1,21 @@
 <template>
   <div>
-    <Carousel />
-    <Categories />
-    <Footer />
+    <carousel />
+    <raccon-footer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Footer from "@/components/footer/Footer.vue";
+import RacconFooter from "@/components/footer/Footer.vue";
 import Carousel from "@/components/carousel/Carousel.vue";
-import Categories from "@/components/categories/Categories.vue";
 
 export default Vue.extend({
-  name: "Home",
+  name: "Wishlist",
 
   components: {
-    Footer,
+    RacconFooter,
     Carousel,
-    Categories,
   },
 });
 </script>

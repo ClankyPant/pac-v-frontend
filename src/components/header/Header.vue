@@ -3,7 +3,7 @@
       <v-app-bar app dark dense color="primary" min-height="200" > 
         <div class="d-flex justify-space-between  align-center full-width">
           <div>
-              <a href="#">
+              <a href="/">
                 <v-img
                   lazy-src="../../static/raccon-games-logo.png"
                   max-height="150"
@@ -22,13 +22,19 @@
               prepend-inner-icon="mdi-magnify"
             ></v-text-field>
           </div>
-          <div>
-            <v-btn icon class="mx-5" @click="showWishlistModal">
-              <v-icon>mdi-purse</v-icon>
-            </v-btn>
-            <v-flex>
+          <div class="header-bottons">
+              <v-row justify="space-around" class="bottons-item"> 
+                <v-btn 
+                    color="primary"
+                    v-bind="attrs"
+                    v-on="on"
+                    @click="wishlistPage()"
+                >
+                  <p>Carrinho</p>
+                  <v-icon>mdi-purse</v-icon>
+                </v-btn>
+              </v-row>
               <User />
-            </v-flex>
           </div>
         </div>
       <div class="items-menu">
@@ -54,7 +60,6 @@
 
 <script>
 import User from "../modals/User";
-// import Wishlist from "../modals/Wishlist";
 
 export default {
   components: { User },
@@ -67,14 +72,13 @@ export default {
   }),
 
   methods: {
-    showLoginModal () {
-      console.log("deu boa Login")
-    },
-
-    showWishlistModal () {
-      console.log("deu boa Wishlist")
+    wishlistPage () {
+      window.location.href = this.$router.push(
+      {
+        path: '/carrinho',
+        name: 'Wishlist'
+      });
     }
-
 
   }
 };
@@ -123,4 +127,15 @@ export default {
 .category-menu p:hover {
   color: #3b3b3b;
 }
+
+.header-bottons {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+ .bottons-item {
+  margin: 12px;
+ }
+
 </style>

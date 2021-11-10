@@ -1,24 +1,24 @@
 <template>
   <div>
-    <Carousel />
-    <Categories />
-    <Footer />
+    <carousel />
+    <Items />
+    <raccon-footer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Footer from "@/components/footer/Footer.vue";
+import RacconFooter from "@/components/footer/Footer.vue";
 import Carousel from "@/components/carousel/Carousel.vue";
-import Categories from "@/components/categories/Categories.vue";
+import Items from "@/components/Items/Items.vue";
 
 export default Vue.extend({
-  name: "Home",
+  name: "Products",
 
   components: {
-    Footer,
+    RacconFooter,
     Carousel,
-    Categories,
+    Items,
   },
 });
 </script>

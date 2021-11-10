@@ -13,6 +13,7 @@
           v-on="on"
           
         >
+          <p>Minha Conta</p>
           <v-icon>mdi-account</v-icon>
         </v-btn>
       </template>
@@ -35,14 +36,14 @@
     <v-card-actions class="card-actions">
         <v-spacer></v-spacer>
         <v-btn
-            color="blue darken-1"
+            color="#ff9800"
             text
             @click="dialog = false"
         >
             Fechar
         </v-btn>
         <v-btn
-            color="blue darken-1"
+            color="#ff9800"
             text
             @click="dialog = false"
         >

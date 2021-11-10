@@ -39,26 +39,76 @@
                   required
                 ></v-text-field>
               </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-              >
-                <v-select
-                  :items="['0-17', '18-29', '30-54', '54+']"
-                  label="Idade*"
+              <v-col cols="12">
+                <v-text-field
+                  label="Confirmar Senha*"
+                  type="password"
                   required
-                ></v-select>
+                ></v-text-field>
               </v-col>
               <v-col
                 cols="12"
                 sm="6"
+                md="6"
               >
-                <v-autocomplete
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                  label="Interests"
-                  multiple
-                ></v-autocomplete>
+                <v-text-field
+                  label="CEP*"
+                  required
+                ></v-text-field>
               </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
+                <v-text-field
+                  label="Telefone*"
+                  required
+                ></v-text-field>
+              </v-col>
+              
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
+                <v-text-field
+                  label="Cidade*"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
+                <v-text-field
+                  label="Estado*"
+                  required
+                ></v-text-field>
+              </v-col>
+
+              <v-col
+                cols="12"
+                sm="8"
+                md="8"
+              >
+                <v-text-field
+                  label="Rua*"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="4"
+                md="4"
+              >
+                <v-text-field
+                  label="Número*"
+                  required
+                ></v-text-field>
+              </v-col>
+
             </v-row>
           </v-container>
           <small>* Campos obrigatórios</small>
