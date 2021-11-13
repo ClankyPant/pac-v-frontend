@@ -72,3 +72,9 @@ export default {
   }),
 };
 </script>
+
+<style>
+.row {
+  margin: 0;
+}
+</style>

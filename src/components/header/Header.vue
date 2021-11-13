@@ -1,6 +1,6 @@
 <template>
     <div>
-      <v-app-bar app dark dense color="primary" min-height="200" > 
+      <v-app-bar app dark dense color="primary" min-height="150" > 
         <div class="d-flex justify-space-between  align-center full-width">
           <div>
               <a href="/">
@@ -8,6 +8,7 @@
                   lazy-src="../../static/raccon-games-logo.png"
                   max-height="150"
                   max-width="250"
+                  style="margin-left:10px"
                   src="../../static/raccon-games-logo.png"
                 ></v-img>
               </a>
@@ -28,10 +29,11 @@
                     color="primary"
                     v-bind="attrs"
                     v-on="on"
+                    class="elevation-0"
                     @click="wishlistPage()"
                 >
                   <p>Carrinho</p>
-                  <v-icon>mdi-purse</v-icon>
+                  <v-icon x-large>mdi-purse</v-icon>
                 </v-btn>
               </v-row>
               <User />
@@ -93,6 +95,15 @@ export default {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.v-menu__content {
+    box-shadow: none;
+}
+
+.v-application p {
+  margin-bottom: 0 !important;
+  margin-right: 10px;
 }
 
 .title {

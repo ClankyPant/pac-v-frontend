@@ -11,10 +11,10 @@
           dark
           v-bind="attrs"
           v-on="on"
-          
+          class="elevation-0"
         >
           <p>Minha Conta</p>
-          <v-icon>mdi-account</v-icon>
+          <v-icon x-large>mdi-account</v-icon>
         </v-btn>
       </template>
       
@@ -74,6 +74,14 @@
 
 
 <style>
+.v-menu__content {
+    box-shadow: none;
+}
+
+.v-application p {
+  margin-bottom: 0 !important;
+}
+
 .card-actions{
   background-color: #fff;
 }

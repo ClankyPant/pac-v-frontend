@@ -38,6 +38,14 @@
 
 <style>
 .carousel{
-  margin-top: 150px;
+  margin-top: 50px;
+}
+
+.v-application p {
+    margin-bottom: 16px;
+}
+
+.category-menu {
+  margin: 0;
 }
 </style>

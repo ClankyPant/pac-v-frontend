@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body-content">
     <carousel />
     <raccon-footer />
   </div>
@@ -19,3 +19,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+.body-content {
+  background-color: #f6f6f6;
+}
+</style>
