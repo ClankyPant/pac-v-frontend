@@ -62,6 +62,7 @@
 
 <script>
 import User from "../modals/User";
+import BaseService from '@/services/BaseService';
 
 export default {
   components: { User },
@@ -75,11 +76,9 @@ export default {
 
   methods: {
     wishlistPage () {
-      window.location.href = this.$router.push(
-      {
-        path: '/carrinho',
-        name: 'Wishlist'
-      });
+      console.log('Aqui')
+      let t = new BaseService();
+      t.getToken();
     }
 
   }
