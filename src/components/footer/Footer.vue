@@ -49,7 +49,7 @@
             color="#142245"
           >
             <v-card-text class="white--text text-right">
-              <strong>Contato | Sobre</strong>
+              <a href="/"><strong>Contato</strong></a><strong>  |  <a href="/">Sobre</a></strong>
             </v-card-text>
           </v-card>
         </v-col>
@@ -76,5 +76,10 @@ export default {
 <style>
 .row {
   margin: 0;
+}
+
+.v-application a {
+    color: #fff !important;
+  text-decoration: none;
 }
 </style>
