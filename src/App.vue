@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <raccon-header />
+    <RacconHeader />
     
     <v-main>
       <router-view />

@@ -9,9 +9,9 @@
     <div class="products">
       <v-layout row wrap>
         <template v-for="(product, index) in products">
-          <v-flex xs2 pa-1 :key="index">
+          <v-flex xs4 pa-2 :key="index">
             <v-hover>
-              <v-card slot-scope="{hover}" class="mx-auto" color="gray lighten-4" max-width="600" height="350">
+              <v-card slot-scope="{hover}" class="mx-auto" color="gray lighten-4" max-width="600" height="500">
                 <v-img :src="product.src" :aspect-ratio="16/9">
                   <v-expand-transition>
                     <div v-if="hover" class="d-flex transition-fast-in-fast-out orange draken-2 display-3 v-card--reveal display3 black--text" style="height: 100%;">
@@ -20,9 +20,9 @@
                   </v-expand-transition>
                 </v-img>
 
-                <v-card-text class="pt-4" style="position: relative;">
+                <v-card-text class="pt-2" style="position: relative;">
                   <v-btn absolute color="orange" class="white--text" fab medium right top>
-                    <v-icon>shopping_cart</v-icon>
+                    <v-icon x-large>mdi-cart</v-icon>
                   </v-btn>
 
                   <div class="font-weight-light grey--text title mb-2">{{product.category}}</div>
@@ -99,7 +99,7 @@ import Divider from '../divider/Divider.vue'
   font-size: 24px !important;
 }
 .department {
-    color: #ff9800;
+  color: #ff9800;
 }
 
 .department-content,

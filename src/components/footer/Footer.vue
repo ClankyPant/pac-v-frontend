@@ -22,14 +22,15 @@
             </v-card-text>
 
             <v-btn
-              v-for="icon in icons"
-              :key="icon"
+              v-for="redeSocial in redesSociais"
+              :key="redeSocial"
               class="mx-4"
               dark
               icon
+              @click="redirectPage(redeSocial.link)"
             >
               <v-icon size="24px">
-                {{ icon }}
+                {{ redeSocial.icon }}
               </v-icon>
             </v-btn>
 
@@ -63,13 +64,31 @@
 export default {
   name: "Footer",
   data: () => ({
-    icons: [
-      'mdi-facebook',
-      'mdi-instagram',
-      'mdi-linkedin',
-      'mdi-twitter',
-    ],
+    redesSociais: [
+      {
+      icon: 'mdi-facebook',
+      link: 'https://www.facebook.com/'
+      },
+      {
+      icon: 'mdi-instagram',
+      link: 'https://www.instagram.com',
+      },
+      {
+      icon: 'mdi-linkedin',
+      link: 'https://br.linkedin.com',
+      },
+      {
+      icon: 'mdi-twitter',
+      link: 'https://twitter.com/'
+      },
+    ]
   }),
+  methods: {
+    redirectPage (link) {
+      window.location.href = link;
+    }
+
+  }
 };
 </script>
 
