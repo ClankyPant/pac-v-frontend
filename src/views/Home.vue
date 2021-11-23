@@ -1,6 +1,7 @@
 <template>
   <div class="body-content">
     <Carousel />
+    <PopUp />
     <Categories />
     <Footer />
   </div>
@@ -11,6 +12,7 @@ import Vue from "vue";
 import Footer from "@/components/footer/Footer.vue";
 import Carousel from "@/components/carousel/Carousel.vue";
 import Categories from "@/components/categories/Categories.vue";
+import PopUp from "@/components/modals/PopUp.vue";
 
 export default Vue.extend({
   name: "Home",
@@ -19,6 +21,7 @@ export default Vue.extend({
     Footer,
     Carousel,
     Categories,
+    PopUp,
   },
 });
 </script>

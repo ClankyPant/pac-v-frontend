@@ -1,8 +1,8 @@
 <template>
   <div class="body-content">
-    <carousel />
+    <Carousel />
     <Items />
-    <raccon-footer />
+    <RacconFooter />
   </div>
 </template>
 
