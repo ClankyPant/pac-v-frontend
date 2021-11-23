@@ -76,6 +76,7 @@ export default {
 
   methods: {
     wishlistPage () {
+      window.location.href = "/carrinho"
       console.log('Aqui')
       let t = new BaseService();
       t.getToken();

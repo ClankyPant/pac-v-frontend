@@ -3,7 +3,7 @@
     <v-dialog
       v-model="dialog"
       max-width="690"
-      
+      class="dialog-cookie"
     >
       <v-card>        
         <v-card-title class="text-h5">
@@ -40,7 +40,7 @@
 </script>
 
 <style>
-.v-dialog {
+.dialog-cookie {
     position: absolute;
     bottom: 0;
     left: 0;
