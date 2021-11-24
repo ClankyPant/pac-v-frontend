@@ -1,28 +1,33 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      dense
-      color="primary"
-      dark
-    >
-    Nav Bar
-    </v-app-bar>
-
+    <RacconHeader />
+    
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
+import RacconHeader from "@/components/header/Header.vue";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
 
+  components: {
+    RacconHeader,
+  },
   data: () => ({
     //
   }),
 });
 </script>
+
+<style>
+
+.v-toolbar__content {
+  margin-top: 30px;
+}
+
+</style>
