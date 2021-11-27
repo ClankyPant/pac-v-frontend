@@ -11,10 +11,17 @@ Vue.config.productionTip = false;
 const store = new Vuex.Store({
   state: {
     token: "",
+    cookiesStatus: false,
   },
   mutations: {
-    changeToken(state, token) {
-      state.token = token;
+    setCookies(state) {
+      localStorage.setItem("cookiesStatus", "true");
+      state.cookiesStatus = true;
+    },
+    initialiseStore(state) {
+      if (localStorage.getItem("cookiesStatus")) {
+        state.cookiesStatus = true;
+      }
     },
   },
 });
@@ -22,6 +29,9 @@ const store = new Vuex.Store({
 new Vue({
   router,
   vuetify,
+  beforeCreate() {
+    this.$store.commit("initialiseStore");
+  },
   store: store,
   render: (h) => h(App),
 }).$mount("#app");
