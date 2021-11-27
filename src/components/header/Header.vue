@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <v-app-bar app dark dense color="primary" min-height="150" > 
+  <div>
+    <v-app-bar app dark dense color="primary" min-height="150">
       <div class="items-menu">
         <div class="category-menu">
           <a href="/produtos"><p>Todos os produtos</p></a>
@@ -18,71 +18,63 @@
           <a href="/produtos"><p>Decoração</p></a>
         </div>
       </div>
-        <div class="d-flex justify-space-between  align-center full-width">
-          <div>
-              <a href="/">
-                <v-img
-                  lazy-src="../../static/raccon-games-logo.png"
-                  max-height="150"
-                  max-width="250"
-                  style="margin-left:10px"
-                  src="../../static/raccon-games-logo.png"
-                ></v-img>
-              </a>
-          </div>
-          <div class="half-width">
-            <v-text-field
-              dark
-              dense
-              outlined
-              hide-details
-              placeholder="Pesquisar..."
-              prepend-inner-icon="mdi-magnify"
-            ></v-text-field>
-          </div>
-          <div class="header-bottons">
-              <v-row justify="space-around" class="bottons-item"> 
-                <v-btn 
-                    color="primary"
-                    v-bind="attrs"
-                    v-on="on"
-                    class="elevation-0"
-                    @click="wishlistPage()"
-                >
-                  <p>Carrinho</p>
-                  <v-icon x-large>mdi-cart</v-icon>
-                </v-btn>
-              </v-row>
-              <User />
-          </div>
+      <div class="d-flex justify-space-between  align-center full-width">
+        <div>
+          <a href="/">
+            <v-img
+              lazy-src="../../static/raccon-games-logo.png"
+              max-height="150"
+              max-width="250"
+              style="margin-left:10px"
+              src="../../static/raccon-games-logo.png"
+            ></v-img>
+          </a>
         </div>
-      </v-app-bar>
-    </div>
+        <div class="half-width">
+          <v-text-field
+            dark
+            dense
+            outlined
+            hide-details
+            placeholder="Pesquisar..."
+            prepend-inner-icon="mdi-magnify"
+          ></v-text-field>
+        </div>
+        <div class="header-bottons">
+          <v-row justify="space-around" class="bottons-item">
+            <v-btn
+              color="primary"
+              v-bind="attrs"
+              v-on="on"
+              class="elevation-0"
+              @click="wishlistPage()"
+            >
+              <p>Carrinho</p>
+              <v-icon x-large>mdi-cart</v-icon>
+            </v-btn>
+          </v-row>
+          <User />
+        </div>
+      </div>
+    </v-app-bar>
+  </div>
 </template>
 
-<script>
-import User from "../modals/User";
-import BaseService from '@/services/BaseService';
+<script lang="ts">
 
 export default {
-  components: { User },
-
   data: () => ({
-    items:[
-      { icone: "mdi-purse", title: "Carrinho"},
-      { icone: "mdi-account", title: "Usuário"}
-    ]
+    items: [
+      { icone: "mdi-purse", title: "Carrinho" },
+      { icone: "mdi-account", title: "Usuário" },
+    ],
   }),
 
   methods: {
-    wishlistPage () {
-      window.location.href = "/carrinho"
-      console.log('Aqui')
-      let t = new BaseService();
-      t.getToken();
-    }
-
-  }
+    wishlistPage() {
+      window.location.href = "/carrinho";
+    },
+  },
 };
 </script>
 
@@ -98,7 +90,7 @@ export default {
 }
 
 .v-menu__content {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .v-application p {
@@ -107,7 +99,7 @@ export default {
 }
 
 .title {
-  background: url('../../static/raccon-games-logo.png') no-repeat;
+  background: url("../../static/raccon-games-logo.png") no-repeat;
   /* background-position: 50% 50%;
   background-size: 165px;
   width: 275px;
@@ -149,8 +141,7 @@ export default {
   padding: 10px;
 }
 
- .bottons-item {
+.bottons-item {
   margin: 12px;
- }
-
+}
 </style>
