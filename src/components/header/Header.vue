@@ -42,18 +42,22 @@
         </div>
         <div class="header-bottons">
           <v-row justify="space-around" class="bottons-item">
-            <v-btn
-              color="primary"
-              v-bind="attrs"
-              v-on="on"
-              class="elevation-0"
-              @click="wishlistPage()"
-            >
-              <p>Carrinho</p>
-              <v-icon x-large>mdi-cart</v-icon>
-            </v-btn>
+            <v-col cols="6">
+              <v-btn
+                color="primary"
+                v-bind="attrs"
+                v-on="on"
+                class="elevation-0"
+                @click="wishlistPage()"
+              >
+                <p>Carrinho</p>
+                <v-icon >mdi-cart</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="6">
+              <UserView />
+            </v-col>
           </v-row>
-          <User />
         </div>
       </div>
     </v-app-bar>
@@ -61,8 +65,10 @@
 </template>
 
 <script lang="ts">
+import UserView from "@/views/User.vue";
 
 export default {
+  components: { UserView },
   data: () => ({
     items: [
       { icone: "mdi-purse", title: "Carrinho" },
