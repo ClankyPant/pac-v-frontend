@@ -33,9 +33,8 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import UserSerivce from "@/services/usuario.service";
-import UsuarioModel from "@/models/usuario.model";
-import TokenResponse from "@/models/services/token.model";
+import UserSerivce from "@/services/Usuario.service";
+import UsuarioModel from "@/models/UsuarioModel";
 
 @Component
 export default class UserLoginComponent extends Vue {

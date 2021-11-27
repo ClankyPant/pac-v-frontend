@@ -1,6 +1,6 @@
-import TokenResponse from "@/models/services/token.model";
-import UsuarioModel from "@/models/usuario.model";
-import BaseService from "./base.service";
+import TokenResponse from "@/models/services/TokenModel";
+import UsuarioModel from "@/models/UsuarioModel";
+import BaseService from "./Base.service";
 
 export default class UsuarioService extends BaseService {
   async login(usuario: UsuarioModel): Promise<TokenResponse> {
