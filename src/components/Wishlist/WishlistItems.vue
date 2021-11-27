@@ -18,6 +18,7 @@
 import Divider from '../divider/Divider.vue'
 import Checkout from './Checkout.vue'
 export default {
+  name:'WishListItems',
   components: { Divider, Checkout },
 }
 </script>
