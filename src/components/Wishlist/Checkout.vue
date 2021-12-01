@@ -1,307 +1,120 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="products"
-    sort-by="calories"
-    class="elevation-1"
+  <v-card
+    class="mx-auto"
+    max-width="1500"
   >
-    <template v-slot:top>
-      <v-toolbar
-        flat
-      >
-        <v-dialog
-          v-model="dialog"
-          max-width="500px"
-        >
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ formTitle }}</span>
-            </v-card-title>
+    <v-row>
+      <v-col sm="5" md="6" >
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.name"
-                      label="Dessert name"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.calories"
-                      label="Calories"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
+        <template>
+          <v-card
+            class="mx-auto"
+            max-width="800"
+          >
+            
+            <v-list two-line>
+              <v-list-item-group
+                v-model="selected"
+                active-class="pink--text"
+                multiple
+              >
+                <template v-for="(item, index) in items">
+                  <v-list-item :key="item.title">
+                    <template v-slot:default="{ active }">
+                      <v-list-item-content>
+                        <v-list-item-title v-text="item.title"></v-list-item-title>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="close"
-              >
-                Cancel
-              </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="save"
-              >
-                Save
-              </v-btn>
-            </v-card-actions>
+                        <v-img
+                        v-bind:lazy-src=item.src
+                        v-bind:src=item.src
+                        max-width="150"
+                        ></v-img>
+
+                        <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
+                      </v-list-item-content>
+
+                      <v-list-item-action>
+
+                        <v-icon
+                          v-if="!active"
+                          color="grey lighten-1"
+                        >
+                          mdi-delete-outline
+                        </v-icon>
+
+                        <v-icon
+                          v-else
+                          color="yellow darken-3"
+                        >
+                          mdi-delete
+                        </v-icon>
+                        <v-text-field
+                          v-model="blue"
+                          class="mt-0 pt-0"
+                          type="number"
+                          style="width: 60px"
+                          :key="index"
+                        ></v-text-field>
+                      </v-list-item-action>
+                    </template>
+                  </v-list-item>
+
+                  <v-divider
+                    v-if="index < items.length - 1"
+                    :key="index"
+                  ></v-divider>
+                </template>
+              </v-list-item-group>
+            </v-list>
           </v-card>
-        </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Deseja remover o Item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="orange" text @click="closeDelete">Cancelar</v-btn>
-              <v-btn color="orange" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-toolbar>
-    </template>
-    <template v-slot:item.remover="{ item }">
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
-    </template>
-    <template v-slot:no-data>
-      <v-btn
-        color="primary"
-        @click="initialize"
-      >
-        Reset
-      </v-btn>
-    </template>
-  </v-data-table>
+        </template>
+
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
   export default {
     data: () => ({
-      dialog: false,
-      dialogDelete: false,
-      headers: [
+      selected: [2],
+      items: [
         {
-          text: 'Descrição',
-          align: 'start',
-          sortable: false,
-          value: 'name',
+          action: '15 min',
+          headline: 'Brunch this weekend?',
+          subtitle: `Esta é Yara, um paraíso tropical congelado no tempo. Far Cry 6 leva os jogadores a um mundo cheio de adrenalina durante uma revolução de guerrilha moderna.`,
+          title: 'Far Cry 6',
+          src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png'
         },
-        { text: 'Qntd.', value: 'qtnd' },
-        { text: 'Preço', value: 'preco' },
-        { text: 'Subtotal', value: 'subtotal' },
         {
-          text: 'Remover',
-          align: 'center',
-          sortable: false,
-          value: 'remover',
-        }
+          action: '2 hr',
+          headline: 'Summer BBQ',
+          subtitle: `Vivencie o horror de sobrevivência como nunca na 8ª grande série da franquia Resident Evil - Resident Evil Village.`,
+          title: 'Resident Evil Village',
+          src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png'
+        },
+        {
+          action: '6 hr',
+          headline: 'Oui oui',
+          subtitle: 'Battlefield™ 2042 é um jogo de tiro em primeira pessoa que marca o retorno à emblemática guerra total da franquia. Em um mundo num futuro próximo, transformado ...',
+          title: 'Battlefield 2042',
+          src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png'
+        },
+        {
+          action: '12 hr',
+          headline: 'Birthday gift',
+          subtitle: 'Sua maior aventura Horizon te espera! Lidere impressionantes expedições pelo mundo aberto vibrante e em constante evolução nas terras mexicanas.',
+          title: 'Forza Horizon 5',
+          src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png'
+        },
+        {
+          action: '18hr',
+          headline: 'Recipe to try',
+          subtitle: 'A nova aventura de Kratos e Atreus, ambientada anos após o título de 2018, é uma tragédia premeditada.',
+          title: 'God of War: Ragnarök',
+          src: 'https://cdn.vuetifyjs.com/images/cards/kitchen.png'
+        },
       ],
-      products: [],
-      editedIndex: -1,
-      editedItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
-      },
-      defaultItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
-      },
     }),
-
-    computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-      },
-    },
-
-    watch: {
-      dialog (val) {
-        val || this.close()
-      },
-      dialogDelete (val) {
-        val || this.closeDelete()
-      },
-    },
-
-    created () {
-      this.initialize()
-    },
-
-    methods: {
-      initialize () {
-        this.products = [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-          },
-        ]
-      },
-
-      editItem (item) {
-        this.editedIndex = this.products.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-      },
-
-      deleteItem (item) {
-        this.editedIndex = this.products.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-
-      deleteItemConfirm () {
-        this.products.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-
-      close () {
-        this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
-      closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.products[this.editedIndex], this.editedItem)
-        } else {
-          this.products.push(this.editedItem)
-        }
-        this.close()
-      },
-    },
   }
 </script>

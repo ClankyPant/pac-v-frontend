@@ -16,7 +16,7 @@
             >
                     <div class="legend-content">
                         <span class="legend-department" />
-                        <p>Teste</p>
+                        <p>{{department.type}}</p>
                     </div>
                 <v-card
                 outlined
