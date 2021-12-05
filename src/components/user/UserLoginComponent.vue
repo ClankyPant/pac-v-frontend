@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import UserSerivce from "@/services/Usuario.service";
+import UserSerivce from "@/services/usuario.service";
 import UsuarioModel from "@/models/UsuarioModel";
 
 @Component

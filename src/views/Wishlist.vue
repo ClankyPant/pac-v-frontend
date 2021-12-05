@@ -8,7 +8,7 @@
 <script lang="ts">
 import Vue from "vue";
 import RacconFooter from "@/components/footer/Footer.vue";
-import WishlistItems from "@/components/wishlist/WishlistItems.vue";
+import WishlistItems from "@/components/Wishlist/WishlistItems.vue";
 
 export default Vue.extend({
   name: "Wishlist",
