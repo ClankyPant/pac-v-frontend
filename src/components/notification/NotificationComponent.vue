@@ -6,7 +6,6 @@
       v-model="notification.active"
     >
       {{ notification.text }}
-      {{ notification.active }}
       <template v-slot:action="{ attrs }">
         <v-btn text v-bind="attrs" @click="notification.active = false">
           Close

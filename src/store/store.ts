@@ -20,6 +20,9 @@ export default new Vuex.Store({
     addNotification(state: State, notficationToAdd: NotificationModel) {
       state.notifications = [...state.notifications, notficationToAdd];
     },
+    setToken(state: State, token: string) {
+      state.token = token;
+    },
   },
   getters: {
     cookiesStatus(state: State) {

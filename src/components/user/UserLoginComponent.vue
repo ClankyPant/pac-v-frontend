@@ -34,6 +34,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import UserSerivce from "@/services/usuario.service";
+import UsuarioModel from "@/models/UsuarioModel";
 
 @Component({})
 export default class UserLoginComponent extends Vue {
@@ -43,11 +44,16 @@ export default class UserLoginComponent extends Vue {
   password = "";
 
   async logar(): Promise<void> {
-    this.$notify.info("teste");
-    // let result = await this.userSerivce.login(
-    //   new UsuarioModel(this.login, this.password)
-    // );
-    // this.$store.state.token = result.token;
+    try {
+      let result = await this.userSerivce.login(
+        new UsuarioModel(this.login, this.password)
+      );
+
+      this.$store.commit("setToken", result.token);
+      this.$notify.info("Logado com sucesso!");
+    } catch (error) {
+      this.$notify.info("Erro ao logar!");
+    }
   }
 }
 </script>
