@@ -34,20 +34,20 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import UserSerivce from "@/services/usuario.service";
-import UsuarioModel from "@/models/UsuarioModel";
 
-@Component
+@Component({})
 export default class UserLoginComponent extends Vue {
   userSerivce = new UserSerivce();
 
   login = "";
   password = "";
 
-  async logar() {
-    let result = await this.userSerivce.login(
-      new UsuarioModel(this.login, this.password)
-    );
-    this.$store.state.token = result.token;
+  async logar(): Promise<void> {
+    this.$notify.info("teste");
+    // let result = await this.userSerivce.login(
+    //   new UsuarioModel(this.login, this.password)
+    // );
+    // this.$store.state.token = result.token;
   }
 }
 </script>

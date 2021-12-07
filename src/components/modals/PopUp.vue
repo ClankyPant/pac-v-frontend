@@ -26,7 +26,7 @@
 export default {
   data() {
     return {
-      dialog: this.$store.state.cookiesStatus == false,
+      dialog: this.$store.getters.cookiesStatus == false,
     };
   },
   methods: {
