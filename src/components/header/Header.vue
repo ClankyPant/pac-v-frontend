@@ -50,8 +50,8 @@
                 class="elevation-0"
                 @click="wishlistPage()"
               >
-                <p>Carrinho</p>
-                <v-icon>mdi-cart</v-icon>
+                <v-icon class="mr-2">mdi-cart</v-icon>
+                Carrinho
               </v-btn>
             </v-col>
             <v-col cols="6">
@@ -76,7 +76,7 @@ export default class HeaderComponent extends Vue {
   ];
 
   wishlistPage(): void {
-    window.location.href =  "/carrinho";
+    window.location.href = "/carrinho";
   }
 }
 </script>

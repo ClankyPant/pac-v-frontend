@@ -3,11 +3,11 @@
     <template v-slot:activator="{ on, attrs }">
       <div v-if="isLogado() == false">
         <v-btn color="primary" class="elevation-0" v-bind="attrs" v-on="on">
-          Login
+          <v-icon class="mr-2"> mdi-account </v-icon>Login
         </v-btn>
       </div>
       <div v-else>
-        <v-btn color="primary" class="elevation-0" >
+        <v-btn color="primary" class="elevation-0">
           Minha Conta
         </v-btn>
       </div>
