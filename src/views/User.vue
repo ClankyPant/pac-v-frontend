@@ -1,9 +1,16 @@
 <template>
   <v-dialog persistent width="50%" v-model="showPopUp">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn color="primary" class="elevation-0" v-bind="attrs" v-on="on">
-        
-      </v-btn>
+      <div v-if="isLogado() == false">
+        <v-btn color="primary" class="elevation-0" v-bind="attrs" v-on="on">
+          Login
+        </v-btn>
+      </div>
+      <div v-else>
+        <v-btn color="primary" class="elevation-0" >
+          Minha Conta
+        </v-btn>
+      </div>
     </template>
 
     <v-card>
@@ -11,7 +18,9 @@
         <v-tab v-for="tab in listOfTab" :key="tab">
           {{ tab }}
         </v-tab>
-        <v-tab-item> <UserLoginComponent v-on:sucesso="showPopUp = false" /></v-tab-item>
+        <v-tab-item>
+          <UserLoginComponent v-on:sucesso="showPopUp = false"
+        /></v-tab-item>
         <v-tab-item> UserRegisterComponent </v-tab-item>
       </v-tabs>
 
@@ -38,5 +47,9 @@ export default class UserView extends Vue {
   listOfTab = ["Logar", "Registrar - se"];
 
   showPopUp = false;
+
+  isLogado(): boolean {
+    return this.$store.getters.token.length > 1;
+  }
 }
 </script>

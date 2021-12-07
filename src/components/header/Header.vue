@@ -51,7 +51,7 @@
                 @click="wishlistPage()"
               >
                 <p>Carrinho</p>
-                <v-icon >mdi-cart</v-icon>
+                <v-icon>mdi-cart</v-icon>
               </v-btn>
             </v-col>
             <v-col cols="6">
@@ -66,22 +66,19 @@
 
 <script lang="ts">
 import UserView from "@/views/User.vue";
+import { Component, Vue } from "vue-property-decorator";
 
-export default {
-  components: { UserView },
-  data: () => ({
-    items: [
-      { icone: "mdi-purse", title: "Carrinho" },
-      { icone: "mdi-account", title: "Usuário" },
-    ],
-  }),
+@Component({ components: { UserView } })
+export default class HeaderComponent extends Vue {
+  items = [
+    { icone: "mdi-purse", title: "Carrinho" },
+    { icone: "mdi-account", title: "Usuário" },
+  ];
 
-  methods: {
-    wishlistPage() {
-      window.location.href = "/carrinho";
-    },
-  },
-};
+  wishlistPage(): void {
+    window.location.href =  "/carrinho";
+  }
+}
 </script>
 
 <style scoped>
