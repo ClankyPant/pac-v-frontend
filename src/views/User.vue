@@ -2,7 +2,7 @@
   <v-dialog persistent width="50%" v-model="showPopUp">
     <template v-slot:activator="{ on, attrs }">
       <v-btn color="primary" class="elevation-0" v-bind="attrs" v-on="on">
-        Minha Conta
+        
       </v-btn>
     </template>
 
@@ -11,7 +11,7 @@
         <v-tab v-for="tab in listOfTab" :key="tab">
           {{ tab }}
         </v-tab>
-        <v-tab-item> <UserLoginComponent /></v-tab-item>
+        <v-tab-item> <UserLoginComponent v-on:sucesso="showPopUp = false" /></v-tab-item>
         <v-tab-item> UserRegisterComponent </v-tab-item>
       </v-tabs>
 

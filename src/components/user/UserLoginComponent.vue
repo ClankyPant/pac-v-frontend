@@ -51,8 +51,9 @@ export default class UserLoginComponent extends Vue {
 
       this.$store.commit("setToken", result.token);
       this.$notify.info("Logado com sucesso!");
+      this.$emit("sucesso");
     } catch (error) {
-      this.$notify.info("Erro ao logar!");
+      this.$notify.info("Erro ao logar. Tente novamente!");
     }
   }
 }

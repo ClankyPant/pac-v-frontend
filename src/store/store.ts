@@ -31,5 +31,8 @@ export default new Vuex.Store({
     notifications(state: State) {
       return state.notifications;
     },
+    token(state: State) {
+      return state.token;
+    },
   },
 });
