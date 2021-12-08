@@ -21,7 +21,9 @@
         <v-tab-item>
           <UserLoginComponent v-on:sucesso="showPopUp = false"
         /></v-tab-item>
-        <v-tab-item> UserRegisterComponent </v-tab-item>
+        <v-tab-item>
+          <UserRegistrationComponent />
+        </v-tab-item>
       </v-tabs>
 
       <v-card-text class="d-flex justify-end"
@@ -36,8 +38,9 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import UserLoginComponent from "@/components/user/UserLoginComponent.vue";
+import UserRegistrationComponent from "@/components/user/UserRegistrationComponent.vue";
 
-@Component({ components: { UserLoginComponent } })
+@Component({ components: { UserLoginComponent, UserRegistrationComponent } })
 export default class UserView extends Vue {
   actualTab = null;
 
