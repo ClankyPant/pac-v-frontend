@@ -8,7 +8,7 @@
       </div>
       <div v-else>
         <v-btn color="primary" class="elevation-0">
-          Minha Conta
+          <v-icon class="mr-2"> mdi-account </v-icon> Minha Conta
         </v-btn>
       </div>
     </template>
