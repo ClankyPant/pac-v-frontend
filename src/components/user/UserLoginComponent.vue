@@ -44,6 +44,8 @@ export default class UserLoginComponent extends Vue {
   password = "";
 
   async logar(): Promise<void> {
+    let loader = this.$loading.show();
+
     try {
       let result = await this.userSerivce.login(
         new UsuarioModel(this.login, this.password)
@@ -54,6 +56,8 @@ export default class UserLoginComponent extends Vue {
       this.$emit("sucesso");
     } catch (error) {
       this.$notify.info("Erro ao logar. Tente novamente!");
+    } finally {
+      loader.hide();
     }
   }
 }
