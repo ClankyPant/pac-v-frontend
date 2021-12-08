@@ -45,8 +45,6 @@
             <v-col cols="6">
               <v-btn
                 color="primary"
-                v-bind="attrs"
-                v-on="on"
                 class="elevation-0"
                 @click="wishlistPage()"
               >
@@ -65,7 +63,7 @@
 </template>
 
 <script lang="ts">
-import UserView from "@/views/User.vue";
+import UserView from "@/views/UserView.vue"
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({ components: { UserView } })

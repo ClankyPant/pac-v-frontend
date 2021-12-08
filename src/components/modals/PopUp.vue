@@ -22,20 +22,18 @@
   </v-row>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      dialog: this.$store.getters.cookiesStatus == false,
-    };
-  },
-  methods: {
-    accept() {
-      this.$store.commit("setCookies");
-      this.dialog = false;
-    },
-  },
-};
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class PopUpComponent extends Vue {
+  dialog: boolean = this.$store.getters.cookiesStatus == false;
+
+  accept(): void {
+    this.$store.commit("setCookies");
+    this.dialog = false;
+  }
+}
 </script>
 
 <style>

@@ -15,7 +15,7 @@
 
     <v-card>
       <v-tabs v-model="actualTab">
-        <v-tab v-for="tab in listOfTab" :key="tab">
+        <v-tab v-for="(tab, index) in listOfTab" :key="index">
           {{ tab }}
         </v-tab>
         <v-tab-item>
@@ -34,14 +34,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, PropSync } from "vue-property-decorator";
+import { Vue, Component } from "vue-property-decorator";
 import UserLoginComponent from "@/components/user/UserLoginComponent.vue";
 
 @Component({ components: { UserLoginComponent } })
 export default class UserView extends Vue {
-  @PropSync("user", { type: String })
-  computedUser = "";
-
   actualTab = null;
 
   listOfTab = ["Logar", "Registrar - se"];
