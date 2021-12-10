@@ -2,6 +2,8 @@
   <div>
     <v-snackbar
       :key="index"
+      :color="notification.color"
+      dark
       v-for="(notification, index) in notifications"
       v-model="notification.active"
     >

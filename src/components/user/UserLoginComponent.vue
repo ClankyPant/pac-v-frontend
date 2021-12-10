@@ -4,14 +4,19 @@
     <v-card flat>
       <v-row justify="center">
         <v-col cols="6">
-          <v-text-field v-model="login" outlined dense label="Login">
+          <v-text-field
+            v-model="usuarioModel.login"
+            outlined
+            dense
+            label="Login"
+          >
           </v-text-field>
         </v-col>
       </v-row>
       <v-row justify="center">
         <v-col cols="6">
           <v-text-field
-            v-model="password"
+            v-model="usuarioModel.password"
             type="password"
             outlined
             dense
@@ -33,29 +38,26 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import UserSerivce from "@/services/usuario.service";
+import UserService from "@/services/usuario.service";
 import UsuarioModel from "@/models/UsuarioModel";
 
 @Component({})
 export default class UserLoginComponent extends Vue {
-  userSerivce = new UserSerivce();
+  userService = new UserService();
 
-  login = "";
-  password = "";
+  usuarioModel = new UsuarioModel();
 
   async logar(): Promise<void> {
     let loader = this.$loading.show();
 
     try {
-      let result = await this.userSerivce.login(
-        new UsuarioModel(this.login, this.password)
-      );
+      let result = await this.userService.login(this.usuarioModel);
 
       this.$store.commit("setToken", result.token);
-      this.$notify.info("Logado com sucesso!");
-      this.$emit("sucesso");
+      this.$notify.success("Logado com sucesso!");
+      this.$emit("success");
     } catch (error) {
-      this.$notify.info("Erro ao logar. Tente novamente!");
+      this.$notify.error("Erro ao logar. Tente novamente!");
     } finally {
       loader.hide();
     }

@@ -14,7 +14,9 @@ declare module "vue/types/vue" {
 
 export interface IPluginApi {
   info(text: string | unknown): void;
-  notifications(): Array<NotificationModel>
+  success(text: string | unknown): void;
+  error(text: string | unknown): void;
+  notifications(): Array<NotificationModel>;
 }
 
 const plugin = {
@@ -27,6 +29,12 @@ const plugin = {
     vueInstance.prototype.$notify = {
       info: (text: string) => {
         store.commit("addNotification", new NotificationModel(text));
+      },
+      success(text:string) {
+        store.commit("addNotification", new NotificationModel(text, "success"));
+      },
+      error(text:string) {
+        store.commit("addNotification", new NotificationModel(text, "error"));
       },
       notifications: (): Array<NotificationModel> =>
         store.getters.notifications,

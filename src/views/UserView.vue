@@ -19,10 +19,10 @@
           {{ tab }}
         </v-tab>
         <v-tab-item>
-          <UserLoginComponent v-on:sucesso="showPopUp = false"
+          <UserLoginComponent v-on:success="showPopUp = false"
         /></v-tab-item>
         <v-tab-item>
-          <UserRegistrationComponent />
+          <UserRegistrationComponent v-on:success="showPopUp = false" />
         </v-tab-item>
       </v-tabs>
 
