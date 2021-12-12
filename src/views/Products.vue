@@ -1,7 +1,7 @@
 <template>
   <div class="body-content">
     <Carousel />
-    <Items />
+    <ItemFilterComponent />
     <RacconFooter />
   </div>
 </template>
@@ -10,7 +10,7 @@
 import Vue from "vue";
 import RacconFooter from "@/components/footer/Footer.vue";
 import Carousel from "@/components/carousel/Carousel.vue";
-import Items from "@/components/Items/Items.vue";
+import ItemFilterComponent from "@/components/Items/ItemCardFilterComponent.vue";
 
 export default Vue.extend({
   name: "Products",
@@ -18,7 +18,7 @@ export default Vue.extend({
   components: {
     RacconFooter,
     Carousel,
-    Items,
+    ItemFilterComponent,
   },
 });
 </script>

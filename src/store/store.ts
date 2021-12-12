@@ -2,6 +2,7 @@ import NotificationModel from "@/models/NotificationModel";
 import Vue from "vue";
 import Vuex from "vuex";
 import State from "@/models/store/StateModel";
+import { ItemCategoryEnum } from "@/enums/ItemCategoryEnum";
 
 Vue.use(Vuex);
 
@@ -16,6 +17,12 @@ export default new Vuex.Store({
       if (localStorage.getItem("cookiesStatus")) {
         state.cookiesStatus = true;
       }
+
+      if (localStorage.getItem("productCategoryFilter")) {
+        state.productCategoryFilter = Number(
+          localStorage.getItem("productCategoryFilter")
+        );
+      }
     },
     addNotification(state: State, notficationToAdd: NotificationModel) {
       state.notifications = [...state.notifications, notficationToAdd];
@@ -23,15 +30,31 @@ export default new Vuex.Store({
     setToken(state: State, token: string) {
       state.token = token;
     },
+    setProductCategoryFilter(state: State, category: number): void {
+      localStorage.setItem("productCategoryFilter", category?.toString());
+      state.productCategoryFilter = category;
+    },
   },
   getters: {
-    cookiesStatus(state: State) {
+    productCategoryFilter(state: State): number {
+      let result: number = ItemCategoryEnum.TODOS;
+
+      if (state.productCategoryFilter != null) {
+        result = state.productCategoryFilter;
+      }
+
+      return result;
+    },
+    logado(): boolean {
+      return false;
+    },
+    cookiesStatus(state: State): boolean {
       return state.cookiesStatus;
     },
-    notifications(state: State) {
+    notifications(state: State): Array<NotificationModel> {
       return state.notifications;
     },
-    token(state: State) {
+    token(state: State): string {
       return state.token;
     },
   },

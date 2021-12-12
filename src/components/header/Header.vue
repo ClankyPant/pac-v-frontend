@@ -3,24 +3,29 @@
     <v-app-bar app dark dense color="primary" min-height="150">
       <div class="items-menu">
         <div class="category-menu">
-          <a href="/produtos"><p>Todos os produtos</p></a>
+          <a @click="changeFilter(itemCategoryObj.CONSOLE)">
+            <p>Console</p>
+          </a>
         </div>
         <div class="category-menu">
-          <a href="/produtos"><p>Console</p></a>
+          <a @click="changeFilter(itemCategoryObj.JOGOS)">
+            <p>Jogos</p>
+          </a>
         </div>
         <div class="category-menu">
-          <a href="/produtos"><p>Jogos</p></a>
+          <a @click="changeFilter(itemCategoryObj.ACESSORIOS)">
+            <p>Acessórios</p>
+          </a>
         </div>
         <div class="category-menu">
-          <a href="/produtos"><p>Acessórios</p></a>
-        </div>
-        <div class="category-menu">
-          <a href="/produtos"><p>Decoração</p></a>
+          <a @click="changeFilter(itemCategoryObj.DECORACAO)">
+            <p>Decoração</p>
+          </a>
         </div>
       </div>
       <div class="d-flex justify-space-between  align-center full-width">
         <div>
-          <a href="/">
+          <a href="/" @click="changeFilter(itemCategoryObj.TODOS)">
             <v-img
               lazy-src="../../static/raccon-games-logo.png"
               max-height="150"
@@ -63,11 +68,20 @@
 </template>
 
 <script lang="ts">
-import UserView from "@/views/UserView.vue"
+import UserView from "@/views/UserView.vue";
 import { Component, Vue } from "vue-property-decorator";
+import { ItemCategoryEnum } from "@/enums/ItemCategoryEnum";
 
 @Component({ components: { UserView } })
 export default class HeaderComponent extends Vue {
+  itemCategoryObj = {
+    JOGOS: ItemCategoryEnum.JOGOS,
+    CONSOLE: ItemCategoryEnum.CONSOLE,
+    ACESSORIOS: ItemCategoryEnum.ACESSORIOS,
+    DECORACAO: ItemCategoryEnum.DECORACAO,
+    TODOS: ItemCategoryEnum.TODOS,
+  };
+
   items = [
     { icone: "mdi-purse", title: "Carrinho" },
     { icone: "mdi-account", title: "Usuário" },
@@ -76,18 +90,17 @@ export default class HeaderComponent extends Vue {
   wishlistPage(): void {
     window.location.href = "/carrinho";
   }
+
+  changeFilter(categoryFilter: number): void {
+    this.$store.commit("setProductCategoryFilter", categoryFilter);
+    window.location.href = "/produtos";
+  }
 }
 </script>
 
 <style scoped>
 * {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  user-select: none;
 }
 
 .v-menu__content {
@@ -101,10 +114,6 @@ export default class HeaderComponent extends Vue {
 
 .title {
   background: url("../../static/raccon-games-logo.png") no-repeat;
-  /* background-position: 50% 50%;
-  background-size: 165px;
-  width: 275px;
-  height: 65px; */
 }
 
 .full-width {

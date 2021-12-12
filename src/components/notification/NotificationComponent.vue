@@ -10,7 +10,7 @@
       {{ notification.text }}
       <template v-slot:action="{ attrs }">
         <v-btn text v-bind="attrs" @click="notification.active = false">
-          Close
+          Fechar
         </v-btn>
       </template>
     </v-snackbar>

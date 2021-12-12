@@ -4,4 +4,5 @@ export default class State {
   token = "";
   cookiesStatus = false;
   notifications: Array<NotificationModel> = [];
+  productCategoryFilter!: number;
 }

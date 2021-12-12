@@ -34,4 +34,8 @@ export default Vue.extend({
 .v-toolbar__content {
   margin-top: 30px;
 }
+
+h1 {
+  color: #ff9800;
+}
 </style>

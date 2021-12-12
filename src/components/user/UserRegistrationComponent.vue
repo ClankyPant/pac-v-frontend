@@ -116,7 +116,7 @@ export default class UserRegistrationComponent extends Vue {
     try {
       result = await this.userService.cadastrar(this.userModel);
     } catch (error) {
-      console.log(error);
+      this.$notify.error((error as Error).message);
     } finally {
       setTimeout(async (): Promise<void> => {
         loading.hide();
