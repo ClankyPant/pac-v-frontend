@@ -23,11 +23,16 @@ export default new Vuex.Store({
           localStorage.getItem("productCategoryFilter")
         );
       }
+
+      if (localStorage.getItem("token")) {
+        state.token = localStorage.getItem("token") || "";
+      }
     },
     addNotification(state: State, notficationToAdd: NotificationModel) {
       state.notifications = [...state.notifications, notficationToAdd];
     },
     setToken(state: State, token: string) {
+      localStorage.setItem("token", token);
       state.token = token;
     },
     setProductCategoryFilter(state: State, category: number): void {

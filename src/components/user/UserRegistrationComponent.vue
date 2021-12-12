@@ -130,6 +130,7 @@ export default class UserRegistrationComponent extends Vue {
           this.$notify.error(errorMessage);
         } else {
           let resultToken = await this.userService.login(this.userModel);
+          this.userModel = new UserModel();
           this.$store.commit("setToken", resultToken.token);
 
           this.$notify.success(result.message);

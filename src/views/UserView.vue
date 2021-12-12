@@ -1,16 +1,28 @@
 <template>
   <v-dialog persistent width="50%" v-model="showPopUp">
     <template v-slot:activator="{ on, attrs }">
-      <div v-if="isLogado() == false">
-        <v-btn color="primary" class="elevation-0" v-bind="attrs" v-on="on">
-          <v-icon class="mr-2"> mdi-account </v-icon>Login
-        </v-btn>
-      </div>
-      <div v-else>
-        <v-btn color="primary" class="elevation-0">
-          <v-icon class="mr-2"> mdi-account </v-icon> Minha Conta
-        </v-btn>
-      </div>
+      <v-row v-if="isLogado()">
+        <v-col cols="6">
+          <v-btn color="primary" class="elevation-0">
+            <v-icon class="mr-2"> mdi-account </v-icon>
+            <span>Conta</span>
+          </v-btn>
+        </v-col>
+        <v-col cols="6">
+          <v-btn @click="logOut()" color="primary" class="elevation-0">
+            <v-icon> mdi-logout </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row v-else>
+        <v-row>
+          <v-col>
+            <v-btn color="primary" class="elevation-0" v-bind="attrs" v-on="on">
+              <v-icon class="mr-2"> mdi-account </v-icon>Login
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-row>
     </template>
 
     <v-card>
@@ -50,6 +62,16 @@ export default class UserView extends Vue {
 
   isLogado(): boolean {
     return this.$store.getters.logado;
+  }
+
+  logOut(): void {
+    let loader = this.$loading.show();
+
+    setTimeout(() => {
+      this.$store.commit("setToken", null);
+      this.$notify.success("Deslogado com sucesso!");
+      loader.hide();
+    }, 500);
   }
 }
 </script>

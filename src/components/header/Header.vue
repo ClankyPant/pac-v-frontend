@@ -24,44 +24,46 @@
         </div>
       </div>
       <div class="d-flex justify-space-between  align-center full-width">
-        <div>
-          <a href="/" @click="changeFilter(itemCategoryObj.TODOS)">
-            <v-img
-              lazy-src="../../static/raccon-games-logo.png"
-              max-height="150"
-              max-width="250"
-              style="margin-left:10px"
-              src="../../static/raccon-games-logo.png"
-            ></v-img>
-          </a>
-        </div>
-        <div class="half-width">
-          <v-text-field
-            dark
-            dense
-            outlined
-            hide-details
-            placeholder="Pesquisar..."
-            prepend-inner-icon="mdi-magnify"
-          ></v-text-field>
-        </div>
-        <div class="header-bottons">
-          <v-row justify="space-around" class="bottons-item">
-            <v-col cols="6">
-              <v-btn
-                color="primary"
-                class="elevation-0"
-                @click="wishlistPage()"
-              >
-                <v-icon class="mr-2">mdi-cart</v-icon>
-                Carrinho
-              </v-btn>
-            </v-col>
-            <v-col cols="6">
-              <UserView />
-            </v-col>
-          </v-row>
-        </div>
+        <v-row>
+          <v-col align-self="center" cols="4">
+            <a href="/" @click="changeFilter(itemCategoryObj.TODOS)">
+              <v-img
+                lazy-src="../../static/raccon-games-logo.png"
+                max-height="150"
+                max-width="250"
+                style="margin-left:10px"
+                src="../../static/raccon-games-logo.png"
+              ></v-img>
+            </a>
+          </v-col>
+          <v-col align-self="center" cols="4">
+            <v-text-field
+              dark
+              dense
+              outlined
+              hide-details
+              placeholder="Pesquisar..."
+              prepend-inner-icon="mdi-magnify"
+            ></v-text-field>
+          </v-col>
+          <v-col align-self="center" cols="4">
+            <v-row>
+              <v-col align-self="center" cols="4">
+                <v-btn
+                  color="primary"
+                  class="elevation-0"
+                  @click="wishlistPage()"
+                >
+                  <v-icon class="mr-2">mdi-cart</v-icon>
+                  Carrinho
+                </v-btn>
+              </v-col>
+              <v-col cols="8">
+                <UserView />
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
       </div>
     </v-app-bar>
   </div>
@@ -120,10 +122,6 @@ export default class HeaderComponent extends Vue {
   width: 100vw;
 }
 
-.half-width {
-  width: 45vw;
-}
-
 .items-menu {
   background-color: #bdc1ca;
   width: 100%;
@@ -143,12 +141,6 @@ export default class HeaderComponent extends Vue {
 
 .category-menu p:hover {
   color: #3b3b3b;
-}
-
-.header-bottons {
-  display: flex;
-  margin: 10px;
-  padding: 10px;
 }
 
 .bottons-item {
