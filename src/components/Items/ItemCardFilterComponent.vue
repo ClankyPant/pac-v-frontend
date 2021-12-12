@@ -35,28 +35,28 @@ export default class ItemCardFilterComponent extends Vue {
       1,
       "PlayStation",
       "VideoGame da Sony muito popular",
-      2000.5,
+      2000.50,
       ItemCategoryEnum.CONSOLE
     ),
     new ItemModel(
       2,
       "Xbox",
       "VideoGame da Microsoft muito popular",
-      1000.5,
+      1000.50,
       ItemCategoryEnum.CONSOLE
     ),
     new ItemModel(
       3,
       "Wii",
       "VideoGame da Nintendo muito popular",
-      1000.5,
+      1000.50,
       ItemCategoryEnum.CONSOLE
     ),
     new ItemModel(
       3,
       "GTA V",
       "Jogo para console",
-      1000.5,
+      1000.50,
       ItemCategoryEnum.JOGOS
     ),
   ];

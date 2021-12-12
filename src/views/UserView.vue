@@ -49,7 +49,7 @@ export default class UserView extends Vue {
   showPopUp = false;
 
   isLogado(): boolean {
-    return this.$store.getters.token.length > 1;
+    return this.$store.getters.logado;
   }
 }
 </script>

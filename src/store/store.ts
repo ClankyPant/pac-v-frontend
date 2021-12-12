@@ -45,8 +45,8 @@ export default new Vuex.Store({
 
       return result;
     },
-    logado(): boolean {
-      return false;
+    logado(state: State): boolean {
+      return state.token != null && state.token.length > 0;
     },
     cookiesStatus(state: State): boolean {
       return state.cookiesStatus;
