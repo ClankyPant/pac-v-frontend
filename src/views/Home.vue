@@ -1,7 +1,6 @@
 <template>
   <div class="body-content">
     <Carousel />
-    <PopUp />
     <ItemFilterComponent />
     <Footer />
   </div>
@@ -12,7 +11,6 @@ import Vue from "vue";
 import Footer from "@/components/footer/Footer.vue";
 import Carousel from "@/components/carousel/Carousel.vue";
 import ItemFilterComponent from "@/components/Items/ItemCardFilterComponent.vue";
-import PopUp from "@/components/modals/PopUp.vue";
 
 export default Vue.extend({
   name: "Home",
@@ -20,8 +18,7 @@ export default Vue.extend({
   components: {
     Footer,
     Carousel,
-    ItemFilterComponent,
-    PopUp,
+    ItemFilterComponent
   },
 });
 </script>
