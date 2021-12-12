@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      {{ item.titulo }}
+      {{ item.nome }}
     </v-card-title>
     <v-card-text>
       <v-img :src="item.base64"></v-img>

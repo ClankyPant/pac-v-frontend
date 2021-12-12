@@ -44,7 +44,7 @@
                   </v-btn>
 
                   <div class="font-weight-light grey--text title mb-2">
-                    {{ product.category }}
+                    {{ product.categoria }}
                   </div>
                   <h3 class="display-1 font-weight-light orange--text mb-2">
                     {{ product.title }}

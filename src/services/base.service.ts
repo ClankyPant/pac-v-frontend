@@ -12,7 +12,7 @@ export default abstract class BaseService {
     cls: ClassConstructor<T>,
     url: string,
     config?: AxiosRequestConfig
-  ): Promise<T> {
+  ): Promise<T | T[]> {
     const response = await BaseService.runRequest(this.axios.get(url, config));
     return plainToClass(cls, response);
   }

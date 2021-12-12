@@ -9,7 +9,7 @@
       <v-container>
         <v-row justify="start">
           <v-col cols="4" v-for="(item, index) in items" :key="index">
-            <ItemCardComponent v-if="showItem(item)" :item="item" />
+            <ItemCardComponent :item="item" />
           </v-col>
         </v-row>
       </v-container>
@@ -23,53 +23,29 @@ import { Component, Vue } from "vue-property-decorator";
 import Divider from "../divider/Divider.vue";
 import ItemCardComponent from "@/components/Items/ItemCardComponent.vue";
 
-import ItemModel from "@/models/ItemModel";
+import _ from "underscore";
 import { ItemCategoryEnum } from "@/enums/ItemCategoryEnum";
+
+import ItemModel from "@/models/ItemModel";
+import ItemService from "@/services/item.service";
 
 @Component({ components: { Divider, ItemCardComponent } })
 export default class ItemCardFilterComponent extends Vue {
   categoryToFilter: number = this.$store.getters.productCategoryFilter;
 
-  items: Array<ItemModel> = [
-    new ItemModel(
-      1,
-      "PlayStation",
-      "VideoGame da Sony muito popular",
-      2000.50,
-      ItemCategoryEnum.CONSOLE
-    ),
-    new ItemModel(
-      2,
-      "Xbox",
-      "VideoGame da Microsoft muito popular",
-      1000.50,
-      ItemCategoryEnum.CONSOLE
-    ),
-    new ItemModel(
-      3,
-      "Wii",
-      "VideoGame da Nintendo muito popular",
-      1000.50,
-      ItemCategoryEnum.CONSOLE
-    ),
-    new ItemModel(
-      3,
-      "GTA V",
-      "Jogo para console",
-      1000.50,
-      ItemCategoryEnum.JOGOS
-    ),
-  ];
+  itemService = new ItemService();
 
-  showItem(item: ItemModel): boolean {
-    if (
-      item.category == this.categoryToFilter ||
-      this.categoryToFilter == ItemCategoryEnum.TODOS
-    ) {
-      return true;
-    }
+  items: Array<ItemModel> = [];
 
-    return false;
+  async created(): Promise<void> {
+    let auxItems = await this.itemService.getAll();
+
+    this.items = _.filter(
+      auxItems,
+      (item: ItemModel) =>
+        item.categoria == this.categoryToFilter ||
+        this.categoryToFilter == ItemCategoryEnum.TODOS
+    );
   }
 }
 </script>
