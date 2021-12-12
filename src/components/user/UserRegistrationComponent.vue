@@ -121,7 +121,13 @@ export default class UserRegistrationComponent extends Vue {
       setTimeout(async (): Promise<void> => {
         loading.hide();
         if (result.status != HttpStatusEnum.CREATED) {
-          this.$notify.error(result.message);
+          let errorMessage = "Algo deu errado, tente novamente!";
+
+          if (result.message != null && result.message.length > 0) {
+            errorMessage = result.message;
+          }
+
+          this.$notify.error(errorMessage);
         } else {
           let resultToken = await this.userService.login(this.userModel);
           this.$store.commit("setToken", resultToken.token);

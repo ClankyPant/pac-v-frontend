@@ -5,6 +5,7 @@
     <v-main>
       <router-view />
       <NotificationComponent />
+      <PopUpComponent />
     </v-main>
   </v-app>
 </template>
@@ -13,6 +14,7 @@
 import Vue from "vue";
 import RacconHeader from "@/components/header/Header.vue";
 import NotificationComponent from "@/components/notification/NotificationComponent.vue";
+import PopUpComponent from "@/components/modals/PopUp.vue";
 
 export default Vue.extend({
   name: "App",
@@ -20,6 +22,7 @@ export default Vue.extend({
   components: {
     RacconHeader,
     NotificationComponent,
+    PopUpComponent,
   },
   data: () => ({
     //
